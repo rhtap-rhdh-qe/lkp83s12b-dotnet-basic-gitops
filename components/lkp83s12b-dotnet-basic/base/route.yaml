@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: lkp83s12b-dotnet-basic
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: lkp83s12b-dotnet-basic 
+  name: lkp83s12b-dotnet-basic
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: lkp83s12b-dotnet-basic
+    weight: 100 
